@@ -38,7 +38,12 @@ namespace EmployeeGraphQLApi.Services
 
         public List<EmployeeDetails> GetEmployees()
         {
-            throw new NotImplementedException();
+            return employees.Select(e => new EmployeeDetails {
+                Id = e.Id,
+                Name = e.Name,
+                Age = e.Age,
+                DeptName = departments.FirstOrDefault(d => d.Id == e.DeptId)?.Name
+            }).ToList();
         }
     }
 }
