@@ -2,7 +2,7 @@
 
 namespace EmployeeGraphQLApi.Models
 {
-    public record EmployeeModel(int Id, string Name, int Age, int DeptId);
+    public record Employee(int Id, string Name, int Age, int DeptId);
 
     public record Department(int Id, string Name);
 
