@@ -23,6 +23,8 @@ builder.Services.AddGraphQL(b => b
     .AddAutoSchema<EmployeeQuery>()  // schema
     .AddSystemTextJson());   // serializer
 
+var app = builder.Build();
+
 // Register the GraphQL endpint, including playground (similar to Swagger for GraphQL)
 app.UseGraphQL<ISchema>("/graphql"); //This is the URL to the GraphQL Endpoint
 app.UseGraphQLPlayground(
@@ -32,8 +34,6 @@ app.UseGraphQLPlayground(
         GraphQLEndPoint = "/graphql",         // url of GraphQL endpoint
         SubscriptionsEndPoint = "/graphql",   // url of GraphQL endpoint
     });
-
-var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
