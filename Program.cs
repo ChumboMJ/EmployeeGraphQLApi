@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+//builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IEmployeeService, EmployeeService>();
 builder.Services.AddSingleton<EmployeeDetailsType>();
@@ -22,6 +22,16 @@ builder.Services.AddSingleton<ISchema, EmployeeDetailSchema>();
 builder.Services.AddGraphQL(b => b
     .AddAutoSchema<EmployeeQuery>()  // schema
     .AddSystemTextJson());   // serializer
+
+// Register the GraphQL endpint, including playground (similar to Swagger for GraphQL)
+app.UseGraphQL<ISchema>("/graphql"); //This is the URL to the GraphQL Endpoint
+app.UseGraphQLPlayground(
+    "/", // This is the URL to access the playground
+    new GraphQL.Server.Ui.Playground.PlaygroundOptions
+    {
+        GraphQLEndPoint = "/graphql",         // url of GraphQL endpoint
+        SubscriptionsEndPoint = "/graphql",   // url of GraphQL endpoint
+    });
 
 var app = builder.Build();
 
