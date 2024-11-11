@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="GraphQL.Server.All" Version="8.1.0" />
     <PackageReference Include="GraphQL.Server.Ui.GraphiQL" Version="8.1.0" />
+    <PackageReference Include="GraphQL.Server.Ui.Playground" Version="8.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 

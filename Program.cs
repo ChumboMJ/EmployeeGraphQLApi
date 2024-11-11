@@ -27,6 +27,12 @@ app.UseGraphQLGraphiQL(
         GraphQLEndPoint = "/graphql",
         SubscriptionsEndPoint = "/graphql"
     });
+app.UseGraphQLPlayground(
+    "/ui/playground", // This is the URL to access the GraphQL Playground tool
+    new GraphQL.Server.Ui.Playground.PlaygroundOptions {
+        GraphQLEndPoint = "/graphql",
+        SubscriptionsEndPoint = "/graphql"
+    });
 
 app.UseHttpsRedirection();
 
