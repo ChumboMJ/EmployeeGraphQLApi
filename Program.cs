@@ -21,12 +21,12 @@ builder.Services.AddGraphQL(b => b
 var app = builder.Build();
 
 app.UseGraphQL<ISchema>("/graphql"); //This is the URL to the GraphQL Endpoint
-app.UseGraphQLGraphiQL(
-    "/ui/graphiql", // This is the URL to access the GraphiQL tool
-    new GraphQL.Server.Ui.GraphiQL.GraphiQLOptions { 
-        GraphQLEndPoint = "/graphql",
-        SubscriptionsEndPoint = "/graphql"
-    });
+//app.UseGraphQLGraphiQL(
+//    "/ui/graphiql", // This is the URL to access the GraphiQL tool
+//    new GraphQL.Server.Ui.GraphiQL.GraphiQLOptions { 
+//        GraphQLEndPoint = "/graphql",
+//        SubscriptionsEndPoint = "/graphql"
+//    });
 app.UseGraphQLPlayground(
     "/ui/playground", // This is the URL to access the GraphQL Playground tool
     new GraphQL.Server.Ui.Playground.PlaygroundOptions {
